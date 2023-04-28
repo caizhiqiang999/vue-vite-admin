@@ -24,11 +24,11 @@ const routeList = [
 export function setComponent(item) {
   if (item.children.length === 0) {
     // 找到对应的路由项
-    const routeItem = routeList.find(route => route.name === item.name);
+    const routeItem = routeList.find((route) => route.name === item.name)
     // 将路由项的component赋值给当前项
-    item.component = routeItem.component;
+    item.component = routeItem.component
   } else {
     // 继续递归处理子项
-    item.children.forEach(child => setComponent(child));
+    item.children.forEach((child) => setComponent(child))
   }
 }

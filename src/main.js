@@ -17,7 +17,7 @@ app.use(pinia)
 // 动态添加路由，防止刷新浏览器白屏
 import { setComponent } from '@/utils/addRoute'
 let routesConfig = JSON.parse(localStorage.getItem('routesConfig')) || []
-routesConfig.forEach(item => setComponent(item))
+routesConfig.forEach((item) => setComponent(item))
 routesConfig.forEach((route) => {
   router.addRoute('home', route)
 })

@@ -1,12 +1,8 @@
 <template>
   <div class="tabbar">
-    <el-menu
-      :default-active="$route.path"
-      :collapse="isCollapse"
-      router
-    >
+    <el-menu :default-active="$route.path" :collapse="isCollapse" router>
       <div ref="titleRef" class="title">
-        <img class="logo" src="@/assets/image/tabbar/logo.svg" alt="">
+        <img class="logo" src="@/assets/image/tabbar/logo.svg" alt="" />
         <h3 v-show="!isCollapse" class="title-name">后台管理系统</h3>
       </div>
       <template v-for="item in routesConfig">
@@ -78,7 +74,7 @@ defineProps({
       }
     }
   }
-  .el-menu:not(.el-menu--collapse) { 
+  .el-menu:not(.el-menu--collapse) {
     width: 200px;
   }
 }

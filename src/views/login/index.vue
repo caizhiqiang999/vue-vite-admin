@@ -5,19 +5,10 @@
         <h3 class="title">后台管理系统</h3>
       </div>
       <el-form-item prop="username">
-        <el-input
-          v-model="loginForm.username"
-          placeholder="请输入用户名"
-        >
-        </el-input>
+        <el-input v-model="loginForm.username" placeholder="请输入用户名"> </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input
-          v-model="loginForm.password"
-          placeholder="请输入密码"
-          type="password"
-        >
-        </el-input>
+        <el-input v-model="loginForm.password" placeholder="请输入密码" type="password"> </el-input>
       </el-form-item>
       <el-button type="primary" round @click="handleLogin">登录</el-button>
     </el-form>
@@ -37,24 +28,25 @@ const loginForm = reactive({
   password: ''
 })
 const loginFormRules = {
-  username: [
-    { required: true, message: '请输入用户名',  trigger: 'blur' }
-  ],
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
   password: [
-    { required: true, message: '请输入密码',  trigger: 'blur' },
-    { pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/, message: '密码长度至少6位且包含字母和数字', trigger: 'blur' }
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    {
+      pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+      message: '密码长度至少6位且包含字母和数字',
+      trigger: 'blur'
+    }
   ]
 }
 // 点击登录
 const handleLogin = () => {
-  loginFormRef.value.validate(valid => {
+  loginFormRef.value.validate((valid) => {
     if (!valid) {
       return
     }
     loginStore.handleLogin(router)
   })
 }
-
 </script>
 
 <style lang="less" scoped>

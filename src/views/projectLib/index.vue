@@ -2,10 +2,6 @@
   <div>工程项目库hahah</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>
