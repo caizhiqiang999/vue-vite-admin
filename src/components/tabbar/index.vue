@@ -53,8 +53,19 @@ defineProps({
   .el-menu {
     height: 100%;
     border: none;
+    color: #bfcbd9;
+    background-color: #304156;
     :deep(.el-menu-item.is-active) {
-      color: rgb(167, 36, 36);
+      color: #1179ff;
+      background-color: #1f2d3d;
+    }
+    :deep(.el-menu-item),
+    :deep(.el-sub-menu__title) {
+      color: #bfcbd9;
+      background-color: #304156;
+      &:hover {
+        background-color: #263445;
+      }
     }
     .title {
       width: 100%;
