@@ -1,16 +1,14 @@
-export function getTitleByPath(routesConfig, path) {
-  const titles = []
-  routesConfig.forEach((route) => {
+export function getBreadcrumbDataByPath(routesConfig, path) {
+  for (let i = 0; i < routesConfig.length; i++) {
+    const route = routesConfig[i]
     if (route.path === path) {
-      titles.push(route.title)
+      return [route.title]
     } else if (route.children && route.children.length > 0) {
-      route.children.forEach((childRoute) => {
-        if (childRoute.path === path) {
-          titles.push(route.title)
-          titles.push(childRoute.title)
-        }
-      })
+      const result = getBreadcrumbDataByPath(route.children, path)
+      if (result) {
+        return [route.title, ...result]
+      }
     }
-  })
-  return titles
+  }
+  return null
 }

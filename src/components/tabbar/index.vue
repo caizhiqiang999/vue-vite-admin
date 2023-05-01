@@ -1,6 +1,6 @@
 <template>
   <div class="tabbar">
-    <el-menu :default-active="$route.path" :collapse="isCollapse" router>
+    <el-menu :default-active="$route.path" :collapse="isCollapse" router @select="menuChange">
       <div ref="titleRef" class="title">
         <img class="logo" src="@/assets/image/tabbar/logo.svg" alt="" />
         <h3 v-show="!isCollapse" class="title-name">后台管理系统</h3>
@@ -45,6 +45,11 @@ defineProps({
     default: false
   }
 })
+const emit = defineEmits(['menuChange'])
+
+const menuChange = (path) => {
+  emit('menuChange', path)
+}
 </script>
 
 <style lang="less" scoped>
